@@ -1,2 +1,2 @@
-# my_study_project
-this is my study project repository
+# 공부용 개인 리퀘스트
+이 리퀘스트는 공부한거 정리하는 용도로 만든 리퀘스트 입니다.
