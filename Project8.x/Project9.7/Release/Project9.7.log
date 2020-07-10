@@ -1,4 +1,0 @@
-﻿  main.cpp
-C:\Users\zpqls\source\repos\Project8\Project9.7\main.cpp(39,1): error C2280: 'Fraction::Fraction(char)': 삭제된 함수를 참조하려고 합니다.
-C:\Users\zpqls\source\repos\Project8\Project9.7\main.cpp(11): message : 'Fraction::Fraction' 선언을 참조하십시오.
-C:\Users\zpqls\source\repos\Project8\Project9.7\main.cpp(11,5): message : 'Fraction::Fraction(char)': 함수가 명시적으로 삭제되었습니다.
