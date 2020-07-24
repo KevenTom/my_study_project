@@ -59,6 +59,7 @@ auto dotProductPromise(const vector<int>& v0, const vector<int>& v1, const unsig
 	vector->set_value(sumsum);
 }
 
+
 int main() {
 	//1 내적이 뭔지 간단하게 알아봅시다.
 	//v0 = {1, 2, 3}
@@ -68,7 +69,7 @@ int main() {
 
 
 	const long long n_data = 100'000'000;
-	const unsigned n_threads = 6;
+	const unsigned n_threads = 4;
 	//n_data는 내적의 수 입니다.
 	//n_threads는 사용할 쓰레드 갯수입니다.
 
@@ -131,7 +132,7 @@ int main() {
 
 		const unsigned n_per_thread = n_data / n_threads;
 		//그리고 각각의 쓰레드에게 일을 나눠줘야겠죠
-		//참고로 나머지가 0인 경우를 가정했습니다. 만약 n_data와 쓰레드개수와 나머지가 있다면 코드도 그에맞게 분배해야겠죠?
+		//참고로 나머지가 0인 경우를 가정했습니다. 만약 n_data와 쓰레드개수와 나눌때 나머지가 있다면 코드도 그에맞게 분배해야겠죠?
 
 		for (int t = 0; t < n_threads; ++t)
 			vector_threade[t] = thread(dotProductNaive, ref(v0), ref(v1), t * n_per_thread, (t + 1) * n_per_thread, ref(sum));

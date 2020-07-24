@@ -19,10 +19,12 @@ void func(MyStruct&& s) {
 	cout << "Pass by R-ref" << endl;
 }
 
+
 template<typename T>
 void func_wrapper(T t) {
 	func(t);
 }
+
 
 template<typename T>
 void func_wrapper2(T&& t) { //3 사용법은 파라미터를 R벨류 레퍼런스를 받아오는것처럼 해주고
