@@ -27,7 +27,7 @@ public:
 			s.push(nd);
 		}
 
-		Binary_Tree<T>::CopyTree(s.top());
+		this->CopyTree(s.top());
 		delete s.top();
 	}
 
