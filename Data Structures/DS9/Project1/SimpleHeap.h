@@ -1,20 +1,17 @@
 #pragma once
 
 template<typename T>
-struct HeapElem {
-	int pr;
-	T data;
-};
-
-template<typename T>
 class Heap
 {
 protected:
+	typedef int (*PriorityComp)(T d1, T d2);
+	PriorityComp comp;
 	int numOfData;
-	HeapElem<T> HeapArr[100];
+	T HeapArr[100];
+
 public:
-	Heap()
-		:numOfData(0)
+	Heap(PriorityComp pc)
+		:numOfData(0), comp(pc)
 	{}
 
 	int HisEmoty() {
@@ -38,22 +35,22 @@ public:
 
 
 	int GetHiPriChildIdx(int idx) {
-		if (GetLChildIDX(idx) > numOfData) //idx의 자식노드 존재유무 확인
+		if (GetLChildIDX(idx) > numOfData)
 			return 0;
-		else if (GetLChildIDX(idx) == numOfData) //자식노드중 왼쪽만 존재한다면
+		else if (GetLChildIDX(idx) == numOfData)
 			return GetLChildIDX(idx);
-		
-		else if (HeapArr[GetLChildIDX(idx)].pr > HeapArr[GetRChildIDX(idx)].pr) //자식노드 둘다 존재한 상태에서 
+
+		else if (comp(HeapArr[GetLChildIDX(idx)], HeapArr[GetRChildIDX(idx)]) < 0)
 			return GetRChildIDX(idx);
 		else
 			return GetLChildIDX(idx);
 	}
 
-	void HInsert(T data, int pr) {
-		int idx = this->numOfData + 1;
+	void HInsert(T data) {
+		int idx = numOfData + 1;
 
 		while (idx != 1) {
-			if (pr < (HeapArr[GetParentIDX(idx)].pr))
+			if (comp(data, HeapArr[GetParentIDX(idx)]) > 0)
 			{
 				HeapArr[idx] = HeapArr[GetParentIDX(idx)];
 				idx = GetParentIDX(idx);
@@ -62,7 +59,7 @@ public:
 				break;
 		}
 
-		HeapArr[idx] = { pr, data };
+		HeapArr[idx] = data;
 		numOfData += 1;
 	}
 
@@ -70,27 +67,19 @@ public:
 		if (HisEmoty())
 			return 0;
 
+		T rdata = HeapArr[1];
 		int idx = 1;
-		T rdata = HeapArr[idx].data;
+		int childIdx;
 
-		if (GetHiPriChildIdx(idx) == 0) {
-			numOfData -= 1;
-			return rdata;
+		while (childIdx = GetHiPriChildIdx(idx)) {
+			if (comp(HeapArr[numOfData], HeapArr[childIdx]) > 0)
+				break;
+
+			HeapArr[idx] = HeapArr[childIdx];
+			idx = childIdx;
 		}
 
 		HeapArr[idx] = HeapArr[numOfData];
-
-		while (true) { //여기가 문제임
-			if (HeapArr[GetHiPriChildIdx(idx)].pr < HeapArr[idx].pr) {
-				HeapElem<T> temp = HeapArr[GetHiPriChildIdx(idx)];
-				HeapArr[GetHiPriChildIdx(idx)] = HeapArr[idx];
-				HeapArr[idx] = temp;
-				idx = GetHiPriChildIdx(idx);
-			}
-			else
-				break;
-		}
-
 		numOfData -= 1;
 		return rdata;
 	}

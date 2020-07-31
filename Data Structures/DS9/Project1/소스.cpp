@@ -3,18 +3,27 @@
 
 using namespace std;
 
+template<typename T>
+int cheack(T d1, T d2) {
+	if (d1 > d2)
+		return 1;
+	else if (d1 < d2)
+		return -1;
+	else
+		return 0;
+}
+
 int main() {
-	Heap<char> heap;
+	Heap<char> heap(cheack);
 
-	heap.HInsert('A', 1);
-	heap.HInsert('B', 2);
-	heap.HInsert('C', 3);
-	cout << heap.HDelete() << endl;
 
-	heap.HInsert('A', 1);
-	heap.HInsert('B', 2);
-	heap.HInsert('C', 3);
-	cout << heap.HDelete() << endl;
+	heap.HInsert('A');
+	heap.HInsert('B');
+	heap.HInsert('C');
+
+	heap.HInsert('A');
+	heap.HInsert('B');
+	heap.HInsert('C');
 
 	while (!heap.HisEmoty())
 		cout << heap.HDelete() << endl;
