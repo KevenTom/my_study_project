@@ -1,32 +1,29 @@
 #include<iostream>
-#include"SimpleHeap.h"
+#include"PriorityQueue.h"
 
 using namespace std;
 
 template<typename T>
-int cheack(T d1, T d2) {
-	if (d1 > d2)
-		return 1;
-	else if (d1 < d2)
-		return -1;
-	else
-		return 0;
+int DataPriorityComp(T d1, T d2) {
+	return strlen(d2) - strlen(d1);
 }
 
 int main() {
-	Heap<char> heap(cheack);
+	PriorityQueue<char*> pq(DataPriorityComp);
 
+	pq.PEnqueue((char*)"A");
+	pq.PEnqueue((char*)"ABC");
+	pq.PEnqueue((char*)"EOHE");
+	cout << pq.PDequeue() << endl;
 
-	heap.HInsert('A');
-	heap.HInsert('B');
-	heap.HInsert('C');
+	pq.PEnqueue((char*)"D");
+	pq.PEnqueue((char*)"AHF");
+	pq.PEnqueue((char*)"JKSSSRG");
+	cout << pq.PDequeue() << endl;
 
-	heap.HInsert('A');
-	heap.HInsert('B');
-	heap.HInsert('C');
+	while (!pq.PQIsEmoty())
+		cout << pq.HDelete() << endl;
 
-	while (!heap.HisEmoty())
-		cout << heap.HDelete() << endl;
 
 	return 0;
 }

@@ -49,12 +49,13 @@ void MergeSort(int arr[], int left, int right) {
 int main() {
 	int array[] = { 8, 2, 3, 7, 1, 5, 4, 6 };
 
+	cout << sizeof(array) / sizeof(array[0]) << endl;
 
 	MergeSort(array, 0, sizeof(array) / sizeof(int) - 1);
 
 
-	for (int i = 0; i < sizeof(array) / sizeof(int) - 1; ++i)
-		cout << array[i] << endl;
+	for (int i = 0; i <= sizeof(array) / sizeof(int) - 1; ++i)
+		cout << array[i] << " ";
 
 	return 0;
 }

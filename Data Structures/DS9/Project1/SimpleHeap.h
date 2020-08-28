@@ -72,7 +72,7 @@ public:
 		int childIdx;
 
 		while (childIdx = GetHiPriChildIdx(idx)) {
-			if (comp(HeapArr[numOfData], HeapArr[childIdx]) > 0)
+			if (comp(HeapArr[numOfData], HeapArr[childIdx]) >= 0)
 				break;
 
 			HeapArr[idx] = HeapArr[childIdx];
