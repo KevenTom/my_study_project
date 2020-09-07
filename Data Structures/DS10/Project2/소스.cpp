@@ -16,7 +16,7 @@ void partition(int arr[], int left, int right) {
 	int low = pivot + 1;
 	int high = right;
 
-	while (low <= high) { //»çÀÌÁî°¡ -1 µÊ
+	while (low <= high) {
 		while (arr[low] <= arr[pivot] && low <= right)
 			++low;
 		while (arr[high] >= arr[pivot] && high >= (left + 1))
