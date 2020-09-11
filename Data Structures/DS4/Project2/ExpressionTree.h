@@ -8,8 +8,7 @@ class ExpressionTree : public Binary_Tree<T>
 {
 public:
 
-	ExpressionTree(char exp[])
-	{
+	ExpressionTree(char exp[]) {
 		std::stack<Binary_Tree<T>*> s;
 
 		for (unsigned int i = 0; i < strlen(exp); ++i) {
