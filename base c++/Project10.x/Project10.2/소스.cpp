@@ -18,5 +18,6 @@ int main()
 		cout << mon1 << endl;
 	}
 
+
 	return 0;
 }
