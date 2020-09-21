@@ -1,5 +1,8 @@
 #pragma once
 #include "Binary_Tree.h"
+#include "AVLRebalance.h"
+
+#include<iostream>
 
 template<typename T>
 class BinartSerachTree :
@@ -10,6 +13,11 @@ public:
         :Binary_Tree<T>()
     {}
 
+    void test() {
+        int get = AVLRebalance<T>::instance().GetHightDiff();
+
+        std::cout << get << std::endl;
+    }
 
     void MakeSearchTree(T insert, Binary_Tree<T>* tree) {
         if (tree->getData() == insert)
@@ -55,8 +63,9 @@ public:
         Binary_Tree<T>* rootNode2;
         Binary_Tree<T>* subNode2;
 
-        pVroot->MakeRightSubTree(subNode);
 
+
+        pVroot->MakeRightSubTree(subNode);
 
         while (subNode != NULL && subNode->getData() != insert) {
             rootNode = subNode;
@@ -116,89 +125,4 @@ public:
 
         delete[] subNode;
     }
-
-
-
-
-
-    void oldDeleteSearchTree(T insert) {
-        Binary_Tree<T>* rootNode = this;
-        Binary_Tree<T>* subNode;
-
-        if (rootNode == NULL)
-            return;
-        else if (rootNode->getData() < insert)
-            subNode = rootNode->GetRightSubTree();
-        else
-            subNode = rootNode->GetLeftSubTree();
-
-
-
-        while (subNode->getData() != insert) {
-            if (subNode->getData() == NULL)
-                return;
-
-            if (subNode->getData() < insert) {
-                rootNode = subNode;
-                subNode = subNode->GetRightSubTree();
-            }
-            else {
-                rootNode = subNode;
-                subNode = subNode->GetLeftSubTree();
-            }
-        }
-
-
-
-        if (subNode->GetLeftSubTree() == NULL && subNode->GetRightSubTree() == NULL) {
-            delete[] subNode;
-
-        }
-        else if (subNode->GetLeftSubTree() == NULL || subNode->GetRightSubTree() == NULL) {
-            if (subNode->GetLeftSubTree() == NULL)
-                if (rootNode->GetLeftSubTree() == subNode) {
-                    rootNode->MakeLeftSubTree(subNode->GetRightSubTree());
-                    delete[] subNode;
-                }
-                else {
-                    rootNode->MakeRightSubTree(subNode->GetRightSubTree());
-                    delete[] subNode;
-                }
-            else
-                if (rootNode->GetLeftSubTree() == subNode) {
-                    rootNode->MakeLeftSubTree(subNode->GetLeftSubTree());
-                    delete[] subNode;
-                }
-                else {
-                    rootNode->MakeRightSubTree(subNode->GetLeftSubTree());
-                    delete[] subNode;
-                }
-        }
-        else {
-            Binary_Tree<T>* rootNode2 = subNode;
-            Binary_Tree<T>* subNode2 = subNode->GetRightSubTree();
-
-            while (subNode2->GetLeftSubTree() != NULL) {
-                rootNode2 = subNode2;
-                subNode2 = subNode2->GetLeftSubTree();
-            }
-
-
-            rootNode2->MakeRightSubTree(subNode2->GetRightSubTree());
-            subNode2->MakeLeftSubTree(subNode->GetLeftSubTree());
-            subNode2->MakeRightSubTree(subNode->GetRightSubTree());
-
-            if (rootNode->GetLeftSubTree() == subNode) {
-                rootNode->MakeLeftSubTree(subNode2);
-                delete[] subNode;
-            }
-            else {
-                rootNode->MakeRightSubTree(subNode2);
-                delete[] subNode;
-            }
-
-        }
-    }
-
-
 };

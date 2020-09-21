@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AVLRebalance.cpp" />
+    <ClCompile Include="BinartSerachTree2.cpp" />
+    <ClCompile Include="Binary_Tree.cpp" />
     <ClCompile Include="소스.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AVLRebalance.h" />
+    <ClInclude Include="BinartSerachTree2.h" />
+    <ClInclude Include="Binary_Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
