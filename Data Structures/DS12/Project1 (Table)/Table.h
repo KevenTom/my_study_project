@@ -1,12 +1,14 @@
 #pragma once
 #include"Slot.h"
 
+#define NULL 0
+
 template<class T>
 class Table
 {
 private:
 	Slot<T> tbl[100]; //테이블
-	int (*HashFunc)(int key); //해쉬함수
+	int (*HashFunc)(int key); //저장할 해쉬함수
 public:
 	Table(int (*fun)(int key)) //생성자로 해쉬함수 저장
 		:HashFunc(fun) {
