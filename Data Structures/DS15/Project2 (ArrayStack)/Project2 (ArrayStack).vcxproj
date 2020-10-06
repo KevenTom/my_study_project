@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ede3a2c0-f2a7-437f-a358-be3fa6ad03a8}</ProjectGuid>
-    <RootNamespace>Project2Collision</RootNamespace>
+    <ProjectGuid>{bcdb3b9e-2391-4a29-a2d0-760e9d26e37f}</ProjectGuid>
+    <RootNamespace>Project2ArrayStack</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Project2 (Double Hashing)</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,15 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="Slot.cpp" />
-    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="ArrayBaseStack.cpp" />
     <ClCompile Include="소스.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="Slot.h" />
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="ArrayBaseStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
