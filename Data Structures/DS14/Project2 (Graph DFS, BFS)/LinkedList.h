@@ -1,7 +1,5 @@
 #pragma once
 
-#define NULL 0
-
 using comp = bool(*)(int, int); //정렬 함수 포인터 타입 별칭 정의
 
 template<typename T>
@@ -77,7 +75,7 @@ inline void LinkedList<T>::SInsert(T data) {
 	newNode->SetData(data);
 	Node<T>* pred = head;
 
-	while (pred->OutputNextNode() != NULL && sortFunction(data, pred->OutputNextNode()->OutputData()) == true)
+	while (pred->OutputNextNode() != nullptr && sortFunction(data, pred->OutputNextNode()->OutputData()) == true)
 		pred = pred->OutputNextNode(); //정렬함수가 false일 때까지 next
 
 	newNode->SetNextNode(pred->OutputNextNode()); //newNode에 pred의 다음노드를 저장
@@ -88,7 +86,7 @@ inline void LinkedList<T>::SInsert(T data) {
 
 template<typename T>
 inline bool LinkedList<T>::LFirest(T* pdata) { //첫 조회 절차
-	if (head->OutputNextNode() == NULL)
+	if (head->OutputNextNode() == nullptr)
 		return false;
 	
 	before = head; //before는 head(더미 노드)를 가르킴
@@ -100,7 +98,7 @@ inline bool LinkedList<T>::LFirest(T* pdata) { //첫 조회 절차
 
 template<typename T>
 inline bool LinkedList<T>::LNext(T* pdata) { //다음 조회 절차
-	if (cur->OutputNextNode() == NULL)
+	if (cur->OutputNextNode() == nullptr)
 		return false;
 
 	before = cur; //before는 cur를 가르킴

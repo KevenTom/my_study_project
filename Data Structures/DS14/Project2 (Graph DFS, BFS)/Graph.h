@@ -1,12 +1,18 @@
 #pragma once
 #include<iostream>
 #include"LinkedList.h"
+#include"CircularQueue.h"
 #include"ArrayBaseStack.h"
 
 enum Vertex{A, B, C, D, E, F, G, H, I, J}; //정점의 이름을 상수화
 
 template<typename T>
-bool WhoIsPrecede(T data1, T data2); //링크리스트 정렬 함수
+bool WhoIsPrecede(T data1, T data2) { //사용할 정렬 함수
+	if (data1 < data2)
+		return false;
+	else
+		return true;
+}
 
 template<typename T>
 class Graph
@@ -26,6 +32,7 @@ public:
 	void ShowGraphEdgeInfo(); //간선의 정보 출력
 
 	void DFShowGraphVertex(T startV); //DFS 탐색
+	void BFShowGraphVertex(T starV); //BFS 탐색
 };
 
 
@@ -40,9 +47,9 @@ inline Graph<T>::Graph(int nv) :adjList(new LinkedList<T>[nv]), visitInfo(new bo
 
 template<typename T>
 inline void Graph<T>::GraphDestory() { //데이터 할당 해제
-	if (adjList != NULL)
+	if (adjList != nullptr)
 		delete[] adjList;
-	if (visitInfo != NULL)
+	if (visitInfo != nullptr)
 		delete[] visitInfo;
 }
 
@@ -85,9 +92,9 @@ inline bool Graph<T>::VisitVertex(T visitV) {
 
 template<typename T>
 inline void Graph<T>::DFShowGraphVertex(T startV) {
+	ArrayBaseStack<int> Stack;
 	T visitV = startV;
 	T nextV = startV;
-	ArrayBaseStack<int> Stack;
 
 	Stack.SPush(startV);
 
@@ -113,9 +120,28 @@ inline void Graph<T>::DFShowGraphVertex(T startV) {
 }
 
 template<typename T>
-bool WhoIsPrecede(T data1, T data2) {
-	if (data1 > data2)
-		return false;
-	else
-		return true;
+inline void Graph<T>::BFShowGraphVertex(T startV) {
+	CircularQueue<int> queue;
+	T visitV = startV;
+	T nextV = startV;
+
+	VisitVertex(visitV);
+
+	while (adjList[visitV].LFirest(&nextV)) {
+		if (VisitVertex(nextV) == true)
+			queue.Enqueue(nextV);
+
+		while (adjList[visitV].LNext(&nextV))
+			if (VisitVertex(nextV) == true)
+				queue.Enqueue(nextV);
+
+		if (queue.QIsEmpty())
+			break;
+		else
+			visitV = static_cast<T>(queue.Dequeue());
+	}
+
+	for (int i = 0; i < numV; ++i)
+		visitInfo[i] = false;
+	std::cout << std::endl;
 }

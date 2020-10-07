@@ -22,6 +22,14 @@ int main() {
 	graph.DFShowGraphVertex(C);
 	graph.DFShowGraphVertex(E);
 	graph.DFShowGraphVertex(G);
+	cout << endl;
+
+
+	graph.BFShowGraphVertex(A);
+	graph.BFShowGraphVertex(C);
+	graph.BFShowGraphVertex(E);
+	graph.BFShowGraphVertex(G);
+
 
 	graph.GraphDestory();
 
