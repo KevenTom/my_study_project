@@ -1,26 +1,50 @@
+/*
+연결리스트 ADT
+
+bool DLinKedList<T>::isEmpty()
+- 
+
+*/
 #include<iostream>
+#include"DLinKedList.h"
 
 using namespace std;
 
-struct Range {
-	int min;
-	int max;
-};
-
-int RangeCheck(Range* pr, int pos) {
-	if (pr->min <= pos && pos <= pr->max)
-		return pr->max - pos;
+bool sort(int d1, int d2) {
+	if (d1 < d2)
+		return false;
 	else
-		return -1;
+		return true;
 }
 
 
 int main() {
-	Range ran;
-	ran.max = 5;
-	ran.min = 1;
+		DLinKedList<int> test;
 
-	cout << RangeCheck(&ran, 3) << endl;
+		test.SetsortFunc(sort);
+
+		test.InsertData(1);
+		test.InsertData(2);
+		test.InsertData(3);
+		test.InsertData(4);
+		test.InsertData(5);
+
+		Node<int>* del;
+
+		if (test.FirstNode()->data == 3)
+			test.RemoveNode();
+		for (int i = 0; i < test.ListSize() - 1; ++i) {
+			del = test.NextNode();
+
+			if (del->data == 3)
+				test.RemoveNode();
+		}
+
+
+		cout << test.FirstNode()->data << " ";
+		for (int i = 0; i < test.ListSize() - 1; ++i)
+			cout << test.NextNode()->data << " ";
+
 
 
 	return 0;
