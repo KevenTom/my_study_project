@@ -1,50 +1,55 @@
-/*
-연결리스트 ADT
-
-bool DLinKedList<T>::isEmpty()
-- 
-
-*/
 #include<iostream>
-#include"DLinKedList.h"
+#include"LinKedList.h"
 
 using namespace std;
 
 bool sort(int d1, int d2) {
 	if (d1 < d2)
-		return false;
-	else
 		return true;
+	else
+		return false;
 }
 
 
 int main() {
-		DLinKedList<int> test;
+	LinKedList<int> list;
 
-		test.SetsortFunc(sort);
+	list.SetsortFunc(sort);
 
-		test.InsertData(1);
-		test.InsertData(2);
-		test.InsertData(3);
-		test.InsertData(4);
-		test.InsertData(5);
+	list.InsertData(1);
+	list.InsertData(2);
+	list.InsertData(3);
+	list.InsertData(4);
+	list.InsertData(5);
 
-		Node<int>* del;
+	int data;
 
-		if (test.FirstNode()->data == 3)
-			test.RemoveNode();
-		for (int i = 0; i < test.ListSize() - 1; ++i) {
-			del = test.NextNode();
+	if (list.FirstNode(&data)) {
+		cout << data << " ";
 
-			if (del->data == 3)
-				test.RemoveNode();
-		}
+		while (list.NextNode(&data))
+			cout << data << " ";
 
+		cout << endl;
+	}
 
-		cout << test.FirstNode()->data << " ";
-		for (int i = 0; i < test.ListSize() - 1; ++i)
-			cout << test.NextNode()->data << " ";
+	if (list.FirstNode(&data)) {
+		if (data == 3)
+			list.RemoveNode();
 
+		while (list.NextNode(&data))
+			if (data == 3)
+				list.RemoveNode();
+	}
+
+	if (list.FirstNode(&data)) {
+		cout << data << " ";
+
+		while (list.NextNode(&data))
+			cout << data << " ";
+
+		cout << endl;
+	}
 
 
 	return 0;
