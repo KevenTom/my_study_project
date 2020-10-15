@@ -1,6 +1,6 @@
 #pragma once
 /*
-양방향 연결 리스트 ADT
+연결 리스트 ADT
 
 bool LinKedList<T>::isEmpty()
 - 리스트가 비어있다면 false, 아니라면 true를 반환한다.
@@ -21,7 +21,6 @@ bool LinKedList<T>::FirstNode(T* pdata)
 - 리스트의 첫 번째 노드를 참조한다.
 - 참조 실패 시 false을 반환한다.
 - 참조 성공 시 true를 반환하고 pdata에 데이터를 저장한다.
-
 
 bool LinKedList<T>::NextNode(T* pdata)
 - 참조된 노드의 다음 노드를 참조한다.
@@ -46,10 +45,10 @@ class LinKedList {
 private:
 	using comp = bool(*)(T, T);	//함수 포인터 타입의 별칭
 
-	Node<T>* head;	//리스트의 시작지점
+	Node<T>* tail;	//리스트 마지막 지점
 	Node<T>* cur;	//참조, 삭제를 돕는 멤버
 	Node<T>* before;//참조, 삭제를 돕는 멤버
-	int count;		//노드 수
+	int numOfData;	//노드 수
 	comp sortFunc;	//정렬함수
 
 	void InsertFirst(T idata);	 //정렬함수가 없을시 작동
@@ -101,7 +100,7 @@ inline bool LinKedList<T>::isEmpty() {
 
 template<typename T>
 inline int LinKedList<T>::ListSize() {
-	return count;
+	return numOfData;
 }
 
 template<typename T>
@@ -150,7 +149,7 @@ inline void LinKedList<T>::RemoveNode() {
 	cur = before;				//cur은 before을 가리키게 함
 
 	delete rNode;
-	--count;
+	--numOfData;
 }
 
 
@@ -162,7 +161,7 @@ inline void LinKedList<T>::InsertFirst(T idata) {
 	newNode->next = head->next;	//새로운 노드의 다음 노드를 head의 다음 노드를 가리키게 함
 	head->next = newNode;		//head 다음 노드를 새로운 노드를 가르키게 함
 
-	++count;
+	++numOfData;
 }
 
 template<typename T>
@@ -171,11 +170,11 @@ inline void LinKedList<T>::InsertSort(T idata) {
 	newNode->data = idata;
 	Node<T>* pred = head;	//정렬함수 기준으로 찾아갈 노드
 
-	while (pred->next != nullptr && sortFunc(pred->next->data, idata))	//pred에 정렬함수가 true일때까지 다음을 가리킴
+	while (pred->next != nullptr && sortFunc(pred->next->data, idata))	//정렬함수가 true면 다음을 가리킴
 		pred = pred->next;
 
 	newNode->next = pred->next;
 	pred->next = newNode;
 
-	++count;
+	++numOfData;
 }
