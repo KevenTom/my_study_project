@@ -3,10 +3,19 @@
 
 using namespace std;
 
+bool sort(int d1, int d2) {
+	if (d1 < d2)
+		return true;
+	else
+		return false;
+}
+
 int main() {
 	DBLinKedList<int> list;
 	int data;
+	list.SetsortFunc(sort);
 
+	list.InsertData(5);
 	list.InsertData(1);
 	list.InsertData(2);
 	list.InsertData(3);

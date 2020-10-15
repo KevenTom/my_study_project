@@ -158,11 +158,11 @@ inline void DBLinKedList<T>::InsertFirst(T idata) {
 	Node<T>* newNode = new Node<T>;
 	newNode->data = idata;
 
-	newNode->next = head->next;	//newnode의 다음 주소는 head 다음 노드를 가리키게 함
+	newNode->next = head->next;	//newNode 다음 주소는 head 다음 노드를 가리키게 함
 	head->next->prev = newNode;	//head 다음 노드의 이전 주소를 newNode를 가리키게 함
 
-	newNode->prev = head;		//newnode의 이전 주소는 head를 가리키게 함
-	head->next = newNode;		//head의 다음 주소는 newnode를 가리킴
+	newNode->prev = head;		//newNode의 이전 주소는 head를 가리키게 함
+	head->next = newNode;		//head의 다음 주소는 newNode를 가리킴
 
 	++numOfData;
 }
@@ -173,7 +173,7 @@ inline void DBLinKedList<T>::InsertSort(T idata) {
 	newNode->data = idata;
 	Node<T>* pred = head;
 
-	while (pred->next != nullptr && sortFunc(pred->next->data, idata))	//pred 변수에 정렬함수가 true일때까지 자기의 다음 노드를 가리킴
+	while (pred->next != tail && sortFunc(pred->next->data, idata))	//pred의 다음노드가 tail이 아니면서 정렬함수가 true면 자기의 다음 노드를 가리킴
 		pred = pred->next;
 
 	newNode->next = pred->next;
