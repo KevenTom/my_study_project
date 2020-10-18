@@ -190,15 +190,19 @@ inline void CLinKedList<T>::InsertSort(T idata) {
 		newNode->next = newNode;
 	}
 	else {
-		Node<T>* pred = tail->next;	//정렬함수 기준으로 찾아갈 노드
+		Node<T>* pred = tail;	//정렬함수 기준으로 찾아갈 노드
 
-		while (sortFunc(pred->next->data, idata) && pred != tail)	//정렬함수가 true이고 pred가 tail이 아니면 다음을 가리킴
-			pred = pred->next;
+		if (sortFunc(pred->next->data, idata)) {	//정렬함수가 true면 다음 노드를 가리킴
+			pred = pred->next;	//처음만 pred가 tail이기 때문에 이렇게 따로 if를 해줌
+
+			while (sortFunc(pred->next->data, idata) && pred != tail)	//정렬함수가 true이고 pred가 tail이 아니면 다음을 가리킴
+				pred = pred->next;
+		}
 
 		newNode->next = pred->next;
 		pred->next = newNode;
 
-		if (sortFunc(tail->data, newNode->data)) //정렬함수가 true면 tail이 newNode를 가리킴
+		if (sortFunc(tail->data, newNode->data)) //newNode가 tail 다음이라면 tail이 newNode를 가리킴
 			tail = newNode;
 	}
 

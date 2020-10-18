@@ -20,6 +20,7 @@ int main() {
 	list.InsertData(2);
 	list.InsertData(1);
 
+
 	if (list.FirstNode(&data)) {
 		cout << data << " ";
 
