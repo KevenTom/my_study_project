@@ -1,10 +1,21 @@
 #pragma once
 /*
-스택 ADT
+연결 리스트 기반 스택 ADT
 
+bool Stack<T>::SIsEmpty()
+- 스택이 비어있다면 false, 아니라면 true를 반환한다.
 
+void Stack<T>::SPush(T indata)
+- 스택에 indata값을 저장한다.
 
+bool Stack<T>::SPop()
+- 마지막에 저장된 노드를 삭제한다.
+- 삭제될 경우 true를 반환한다.
+- 비어있을경우 false를 반환한다.
 
+T Stack<T>::SPeek()
+- 마지막에 저장된 데이터를 반환한다.
+- 스택이 비어있을경우 0을 반환한다.
 */
 
 template<typename T>
