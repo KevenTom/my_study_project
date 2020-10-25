@@ -2,59 +2,59 @@
 /*
 이진 트리 ADT
 
-void TBinary_Tree<T>::SetData(T indata)
+void Binary_Tree<T>::SetData(T indata)
 - 노드에 indata 데이터를 저장한다.
 
-T TBinary_Tree<T>::getData()
+T Binary_Tree<T>::getData()
 - 노드에 저장된 데이터를 반환한다.
 
-void TBinary_Tree<T>::MakeLeftSubTree(TBinary_Tree<T>* sub)
+void Binary_Tree<T>::MakeLeftSubTree(Binary_Tree<T>* sub)
 - sub 매개변수를 왼쪽 서브 트리에 연결한다.
 
-void TBinary_Tree<T>::MakeRightSubTree(TBinary_Tree<T>* sub)
+void Binary_Tree<T>::MakeRightSubTree(Binary_Tree<T>* sub)
 - sub 매개변수를 오른쪽 서브 트리에 연결한다.
 
-TBinary_Tree<T>* TBinary_Tree<T>::GetLeftSubTree()
+Binary_Tree<T>* Binary_Tree<T>::GetLeftSubTree()
 - 왼쪽 서브 트리의 주소 값을 반환한다.
 
-TBinary_Tree<T>* TBinary_Tree<T>::GetRightSubTree()
+Binary_Tree<T>* Binary_Tree<T>::GetRightSubTree()
 - 오른쪽 서브 트리의 주소 값을 반환한다.
 */
 
 template<typename T>
-class TBinary_Tree
+class Binary_Tree
 {
 	T data;
-	TBinary_Tree* left;
-	TBinary_Tree* right;
+	Binary_Tree* left;
+	Binary_Tree* right;
 public:
-	TBinary_Tree();
+	Binary_Tree();
 
 
 	void SetData(T indata);
 	T getData();
 
-	void MakeLeftSubTree(TBinary_Tree<T>* sub);
-	void MakeRightSubTree(TBinary_Tree<T>* sub);
-	TBinary_Tree<T>* GetLeftSubTree();
-	TBinary_Tree<T>* GetRightSubTree();
+	void MakeLeftSubTree(Binary_Tree<T>* sub);
+	void MakeRightSubTree(Binary_Tree<T>* sub);
+	Binary_Tree<T>* GetLeftSubTree();
+	Binary_Tree<T>* GetRightSubTree();
 };
 
 template<typename T>
-inline TBinary_Tree<T>::TBinary_Tree() :left(nullptr), right(nullptr) {}
+inline Binary_Tree<T>::Binary_Tree() :left(nullptr), right(nullptr) {}
 
 template<typename T>
-inline void TBinary_Tree<T>::SetData(T indata) {
+inline void Binary_Tree<T>::SetData(T indata) {
 	data = indata;
 }
 
 template<typename T>
-inline T TBinary_Tree<T>::getData() {
+inline T Binary_Tree<T>::getData() {
 	return data;
 }
 
 template<typename T>
-inline void TBinary_Tree<T>::MakeLeftSubTree(TBinary_Tree<T>* sub) {
+inline void Binary_Tree<T>::MakeLeftSubTree(Binary_Tree<T>* sub) {
 	if (left != nullptr)
 		delete left;
 
@@ -62,7 +62,7 @@ inline void TBinary_Tree<T>::MakeLeftSubTree(TBinary_Tree<T>* sub) {
 }
 
 template<typename T>
-inline void TBinary_Tree<T>::MakeRightSubTree(TBinary_Tree<T>* sub) {
+inline void Binary_Tree<T>::MakeRightSubTree(Binary_Tree<T>* sub) {
 	if (right != nullptr)
 		delete right;
 
@@ -70,11 +70,11 @@ inline void TBinary_Tree<T>::MakeRightSubTree(TBinary_Tree<T>* sub) {
 }
 
 template<typename T>
-inline TBinary_Tree<T>* TBinary_Tree<T>::GetLeftSubTree() {
+inline Binary_Tree<T>* Binary_Tree<T>::GetLeftSubTree() {
 	return left;
 }
 
 template<typename T>
-inline TBinary_Tree<T>* TBinary_Tree<T>::GetRightSubTree() {
+inline Binary_Tree<T>* Binary_Tree<T>::GetRightSubTree() {
 	return right;
 }
