@@ -3,18 +3,25 @@
 
 using namespace std;
 
-int main() {
-	Heap<char> heap;
+bool PrComp(char c1, char c2) {
+	if (c1 < c2)
+		return true;
+	else
+		return false;
+}
 
-	heap.HInsert('A', 1);
-	heap.HInsert('B', 2);
-	heap.HInsert('C', 3);
+int main() {
+	Heap<char> heap(PrComp);
+
+	heap.HInsert('A');
+	heap.HInsert('B');
+	heap.HInsert('C');
 	
 	cout << heap.HDelete() << endl;
 	
-	heap.HInsert('A', 1);
-	heap.HInsert('B', 2);
-	heap.HInsert('C', 3);
+	heap.HInsert('A');
+	heap.HInsert('B');
+	heap.HInsert('C');
 
 	cout << heap.HDelete() << endl;
 
