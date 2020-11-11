@@ -45,6 +45,15 @@ public:
 	void MakeRightSubTree(TBinary_Tree<T>* sub);
 	TBinary_Tree<T>* GetLeftSubTree();
 	TBinary_Tree<T>* GetRightSubTree();
+	void ChangeLeftSubTree(TBinary_Tree* sub) {
+		left = sub;
+	}
+	void ChangeRightSubTree(TBinary_Tree* sub) {
+		right = sub;
+	}
+	void RemoveLeftSubTree() {
+
+	}
 
 	using comp = void(*)(T data);	//함수 포인터 타입 별칭
 	void PreorderTraverse(comp action);		//전위 순회 함수
