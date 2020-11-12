@@ -1,5 +1,5 @@
 #pragma once
-#include"TBinary_Tree.h"
+#include"TBinary_Tree.h"	//전에 만든 순회 이진 트리를 사용
 /*
 void BSearch_Tree<T>::BSTInsert(T insert)
 - 트리에 insert 데이터를 저장한다.
