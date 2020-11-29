@@ -20,6 +20,7 @@ int main() {
 	avl.BSTInsert(8);
 	avl.BSTInsert(9);
 
+	cout << "루트 노드 : " << avl.BSTRoot()->getData() << endl;
 
 	TBinary_Tree<int>* clNode;
 	TBinary_Tree<int>* crNode;
@@ -38,7 +39,7 @@ int main() {
 
 	clNode = clNode->GetLeftSubTree();
 	crNode = crNode->GetRightSubTree();
-	cout << "왼쪽3 : " << clNode->getData() << " 오른쪽3 : " << crNode->getData() << endl;
+	cout << "왼쪽4 : " << clNode->getData() << " 오른쪽4 : " << crNode->getData() << endl;
 
 
 
