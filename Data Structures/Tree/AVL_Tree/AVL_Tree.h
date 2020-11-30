@@ -4,6 +4,9 @@
 void AVL_Tree<T>::BSTInsert(T insert)
 - 트리에 insert 데이터를 저장한다.
 
+TBinary_Tree<T>* AVL_Tree<T>::BSTRoot()
+-루트 노드 주소를 반환합니다.
+
 TBinary_Tree<T>* AVL_Tree<T>::BSTSearch(T target)
 - 트리에 target을 찾는다. 
 - 트리에 target이 있다면 target 노드 주소를 반환, 없다면 nullptr 반환
