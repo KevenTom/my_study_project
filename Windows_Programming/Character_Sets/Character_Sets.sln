@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WBCS_Test", "WBCS_Test\WBCS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windos_WBCS", "Windos_WBCS\Windos_WBCS.vcxproj", "{6C43ACD5-FEA8-4670-8400-53B3B1D9DE37}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MBCS_WBCS_together", "MBCS_WBCS_together\MBCS_WBCS_together.vcxproj", "{105C536F-B17C-4152-BBFB-A9919A6C6406}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{6C43ACD5-FEA8-4670-8400-53B3B1D9DE37}.Release|x64.Build.0 = Release|x64
 		{6C43ACD5-FEA8-4670-8400-53B3B1D9DE37}.Release|x86.ActiveCfg = Release|Win32
 		{6C43ACD5-FEA8-4670-8400-53B3B1D9DE37}.Release|x86.Build.0 = Release|Win32
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Debug|x64.ActiveCfg = Debug|x64
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Debug|x64.Build.0 = Debug|x64
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Debug|x86.ActiveCfg = Debug|Win32
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Debug|x86.Build.0 = Debug|Win32
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Release|x64.ActiveCfg = Release|x64
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Release|x64.Build.0 = Release|x64
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Release|x86.ActiveCfg = Release|Win32
+		{105C536F-B17C-4152-BBFB-A9919A6C6406}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
